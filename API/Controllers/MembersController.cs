@@ -25,7 +25,8 @@ namespace API.Controllers
         [HttpGet("{id}/photos")]
         public async Task<ActionResult<Photo>> GetMemberPhotos(string id)
         {
-            return Ok(memberRepository.GetPhotosForMemberAsync(id));  
+            var photos = await memberRepository.GetPhotosForMemberAsync(id);
+            return Ok(photos);
         }
     }
 }
